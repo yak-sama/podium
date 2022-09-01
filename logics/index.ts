@@ -12,7 +12,6 @@ import {
 let flatApi: FlatSubsocialApi
 let selectedAddress: string
 let selectedProfile: ProfileData | undefined
-// const spaceId = '1015'
 const spaceId = '9940'
 
 export const connect = async () => flatApi = await newFlatSubsocialApi({
@@ -81,13 +80,19 @@ export const fetchPosts = async () => {
   return posts
 }
 
+export const fetchSpace = async () => {
+  const space = await flatApi.subsocial.findSpace({ id: spaceId as any })
+  console.log("space", space)
+  return space
+}
+
 export const subscribeToSpace = async() => {
-  const substrateApi = await flatApi.subsocial.substrate.api
+  // const substrateApi = await flatApi.subsocial.substrate.api
 
-  const res = await substrateApi.query.spaceFollows.spacesFollowedByAccount('3tP6YGBggyekuJDkEG6mn6busH5wXFe2Z21Z3uP8qWiFLtoP') as Vec<SubstrateSpaceId>
-  const followedSpaceIds = bnsToIds(res)
+  // const res = await substrateApi.query.spaceFollows.spacesFollowedByAccount('3tP6YGBggyekuJDkEG6mn6busH5wXFe2Z21Z3uP8qWiFLtoP') as Vec<SubstrateSpaceId>
+  // const followedSpaceIds = bnsToIds(res)
 
-  console.log(followedSpaceIds)
+  // console.log(followedSpaceIds)
 
 
   // const tx = substrateApi.tx.spaceFollows.followSpace(spaceId)
