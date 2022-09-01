@@ -8,7 +8,7 @@ import Poll from '../../svgs/poll.svg';
 import Emoji from '../../svgs/emojis.svg';
 import Schedule from '../../svgs/schedule.svg';
 import styles from './styles/tweet-box.module.css';
-import { postTweet } from '~/logics';
+import { createSpace, postTweet, subscribeToSpace } from '~/logics';
 const TweetBox: React.FC = () => {
   const [tweetData, setTweet] = useState('');
 
@@ -76,6 +76,14 @@ const TweetBox: React.FC = () => {
                 className={`text-white px-4 py-2 shadow-sm focus:outline-none font-bold bg-primary rounded-full ${tweetData.length === 0 ? 'cursor-not-allowed opacity-50' : ''
                   }`}>
                 Tweet
+              </button>
+            </div>
+            <div className="">
+              <button
+                onClick={subscribeToSpace}
+                disabled={false}
+                className={`text-white px-4 py-2 shadow-sm focus:outline-none font-bold bg-primary rounded-full}`}>
+                Follow Space
               </button>
             </div>
           </div>
