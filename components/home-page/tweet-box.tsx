@@ -8,17 +8,50 @@ import Poll from '../../svgs/poll.svg';
 import Emoji from '../../svgs/emojis.svg';
 import Schedule from '../../svgs/schedule.svg';
 import styles from './styles/tweet-box.module.css';
-import { createSpace, postTweet, subscribeToSpace } from '~/logics';
+import { createSpace, post, subscribeToSpace } from '~/logics';
+
+export interface IPostSubmission {
+  body: string;
+  title: string;
+  image: string;
+}
+
+const isEmpty = (postSubmission: IPostSubmission) => {
+  return postSubmission.body.length === 0 && postSubmission.title.length === 0;
+}
+
+function emptyPostSubmission(): IPostSubmission {
+  return {
+    body: '',
+    title: '',
+    image: ''
+  };
+}
+
 const TweetBox: React.FC = () => {
-  const [tweetData, setTweet] = useState('');
+  const [postSubmissionData, setPostSubmission] = useState<IPostSubmission>(emptyPostSubmission());
 
   const onTweetBtnClick = async () => {
-    await postTweet(tweetData)
-    setTweet('')
+    if (postSubmissionData) {
+      await post(postSubmissionData)
+    }
+    setPostSubmission(emptyPostSubmission())
   }
 
-  const updateTweetData = async (e: ContentEditableEvent) => {
-    setTweet(e.target.value);
+  const updateTitleData = async (e: ContentEditableEvent) => {
+    setPostSubmission({
+      body: postSubmissionData.body,
+      title: e.target.value,
+      image: postSubmissionData.image
+    })
+  };
+
+  const updateBodyData = async (e: ContentEditableEvent) => {
+    setPostSubmission({
+      body: e.target.value,
+      title: postSubmissionData.title,
+      image: postSubmissionData.image
+    })
   };
   return (
     <div>
@@ -37,8 +70,8 @@ const TweetBox: React.FC = () => {
         </Link>
         <div id="tweet-box" className="flex-grow px-2 pt-3 pb-1 relative">
           <div className="px-2">
-            <div className="pointer-events-none absolute text-gray-600 max-h-full text-lg">
-              {tweetData.length === 0 && "What's happening?"}
+          <div className="pointer-events-none absolute text-gray-600 max-h-full text-lg">
+              {isEmpty(postSubmissionData) && "Title"}
             </div>
 
             <ContentEditable
@@ -48,8 +81,23 @@ const TweetBox: React.FC = () => {
               spellCheck
               tagName="div"
               className="text-white text-lg w-full focus:outline-none select-text whitespace-pre-wrap break-all inline-block"
-              onChange={updateTweetData}
-              html={tweetData}></ContentEditable>
+              onChange={updateTitleData}
+              html={postSubmissionData.title}></ContentEditable>
+
+
+            <div className="pointer-events-none absolute text-gray-600 max-h-full text-lg">
+              {isEmpty(postSubmissionData) && "Body"}
+            </div>
+
+            <ContentEditable
+              aria-multiline="true"
+              aria-autocomplete="list"
+              aria-describedby="tweet-box"
+              spellCheck
+              tagName="div"
+              className="text-white text-lg w-full focus:outline-none select-text whitespace-pre-wrap break-all inline-block"
+              onChange={updateBodyData}
+              html={postSubmissionData.body}></ContentEditable>
           </div>
           <div className="flex flex-wrap justify-between mt-5">
             <div className="flex items-center">
@@ -72,8 +120,8 @@ const TweetBox: React.FC = () => {
             <div className="">
               <button
                 onClick={onTweetBtnClick}
-                disabled={tweetData.length === 0}
-                className={`text-white px-4 py-2 shadow-sm focus:outline-none font-bold bg-primary rounded-full ${tweetData.length === 0 ? 'cursor-not-allowed opacity-50' : ''
+                disabled={isEmpty(postSubmissionData)}
+                className={`text-white px-4 py-2 shadow-sm focus:outline-none font-bold bg-primary rounded-full ${isEmpty(postSubmissionData)  ? 'cursor-not-allowed opacity-50' : ''
                   }`}>
                 Tweet
               </button>

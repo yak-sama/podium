@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import ReactList from 'react-list';
 import { useEffect, useState } from 'react';
 import { connect, fetchPosts, fetchSpace } from '~/logics';
-import { ITweet } from '../shared/tweet';
+import { IPost } from '../shared/tweet';
 const TweetComponent = dynamic(() => import('../shared/tweet'), { ssr: false });
 const TweetBox = dynamic(() => import('./tweet-box'), { ssr: false });
 
@@ -12,7 +12,7 @@ export interface ISpace {
 
 const HomeCenterComponent = () => {
 
-  const [tweets, setTweets] = useState<ITweet[]>([])
+  const [tweets, setTweets] = useState<IPost[]>([])
 
   const [space, setSpace] = useState<ISpace>()
 
@@ -35,18 +35,18 @@ const HomeCenterComponent = () => {
     const tweetsData = data.map((tweet) => {
       const { content, struct } = tweet
       return {
-        id: struct.id,
-        description: content?.body,
-        username: content?.title,
+        id: struct.id.toString(),
+        body: content?.body,
+        title: content?.title,
         name: struct.owner.toString(),
-        avatar: "/images/personal.jpg",
+        image: "/images/personal.jpg",
         date: Date.now(),
         likes: struct.upvotesCount.toNumber(),
         replies: 0,
         retweets: 0,
       }
     })
-    setTweets(tweetsData as any as ITweet[])
+    setTweets(tweetsData as IPost[])
   }
 
   useEffect(() => {

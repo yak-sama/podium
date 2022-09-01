@@ -8,6 +8,7 @@ import {
   OptionBool,
   SpaceUpdate
 } from "@subsocial/types/substrate/classes"
+import { IPostSubmission } from '~/components/home-page/tweet-box'
 
 let flatApi: FlatSubsocialApi
 let selectedAddress: string
@@ -136,12 +137,8 @@ export const createSpace = async () => {
 
 }
 
-export const postTweet = async (tweet: string) => {
-  const cid = await flatApi.subsocial.ipfs.saveContent({
-    title: selectedProfile ? selectedProfile.content?.name : selectedAddress,
-    body: tweet,
-    avatar: selectedProfile ? selectedProfile.content?.avatar : ''
-  })
+export const post = async (postSubmissionData: IPostSubmission) => {
+  const cid = await flatApi.subsocial.ipfs.saveContent(postSubmissionData)
 
   const substrateApi = await flatApi.subsocial.substrate.api
   const postTransaction = substrateApi.tx.posts.createPost(
