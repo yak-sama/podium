@@ -2496,14 +2496,14 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@subsocial/api@^0.6.10":
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/@subsocial/api/-/api-0.6.11.tgz#7b16e8db5257c24192cfef7e388b05b9bb051b30"
-  integrity sha512-nlVY3w4Z51DytKsH4/xiuS6E8YClfm1+OQ5glOGXRKROfZRv/jH7sK2rRYi6raUuSruiCgQ4NvcEDxwDBVbQtg==
+"@subsocial/api@^0.6.8":
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/@subsocial/api/-/api-0.6.8.tgz#86e93bc68e46f40d7382e516730d7f9d367b0379"
+  integrity sha512-yMitFqTpx1wtZIYlSVDnQdruipuLxqtTETCU4k1UqSpbhK7cerYsapY3STVa4scAzYpkGpgXzV69RKWunkIt8Q==
   dependencies:
     "@polkadot/api" latest
-    "@subsocial/types" "0.6.11"
-    "@subsocial/utils" "0.6.11"
+    "@subsocial/types" "0.6.8"
+    "@subsocial/utils" "0.6.8"
     axios "^0.24.0"
 
 "@subsocial/config@0.6.10":
@@ -2511,30 +2511,38 @@
   resolved "https://registry.yarnpkg.com/@subsocial/config/-/config-0.6.10.tgz#2cf72e074e9dd70a0d15585175b352422e171b13"
   integrity sha512-ZStZMC4Wm92HXCyg3rkshmxyEw77CN59PxH4HS61zbfqKkgQWcFCL+XTmyhJQD7zoX1dmfdwXd4S8SnVPxEgbw==
 
-"@subsocial/definitions@0.6.11", "@subsocial/definitions@^0.6.10":
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/@subsocial/definitions/-/definitions-0.6.11.tgz#93f012848b9305d66a6974246d9108d5adcb1ef9"
-  integrity sha512-FQDzZmSaHXQ9x5HoudPcDYf3BmH2CN7zPbPZS+01LZXhelDN7qbNk36+pBeXki0zmtUnevWjy6LKld8zZ3XLBw==
+"@subsocial/definitions@0.6.8":
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/@subsocial/definitions/-/definitions-0.6.8.tgz#ac6fbc94dd4aa713c51d31d1ca0031b8f253b68a"
+  integrity sha512-h4NFgKoASviYMoSaTRYcVConi2Re7Mb898mWw8jZ1Mz/RF2ZTlZcyD2S7RFq6d6I7owBuSXK8SeIFNKQ+O2/+Q==
   dependencies:
     "@polkadot/api" latest
     lodash.camelcase "^4.3.0"
 
-"@subsocial/types@0.6.11", "@subsocial/types@^0.6.10":
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/@subsocial/types/-/types-0.6.11.tgz#3be490247f9aa53a2b897cd7d8d56cb2b0aa860d"
-  integrity sha512-IsmNS1y4OLKBxi6XIi/BicpsoYDQWHHE31YlAgGjQ5nRa5ANLW0eNRLHOqgVjBLR4pyNfbCIN9sZ+yLuzL+ctg==
+"@subsocial/definitions@^0.6.12-parachain.9":
+  version "0.6.12-parachain.9"
+  resolved "https://registry.yarnpkg.com/@subsocial/definitions/-/definitions-0.6.12-parachain.9.tgz#3c60ba4318e1dfc9bd6db72e6eaacdb01d3eeca9"
+  integrity sha512-d1t0SCd0xy4Ps6YcJ3aKM4T6ThRCEO7ISkXepoyZ/mDeRLGSL7rtsKI6wlEhomZeyIXNN6ILe3qeXRwwsA5Gcg==
+  dependencies:
+    "@polkadot/api" latest
+    lodash.camelcase "^4.3.0"
+
+"@subsocial/types@0.6.8", "@subsocial/types@^0.6.8":
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/@subsocial/types/-/types-0.6.8.tgz#a3b46aa4b6b37c6a37e72cb4d0a20566a0c29777"
+  integrity sha512-fD3NNeecuX5XH9CsFqIN98KUGmGinvqN2KTwtn5DqP+d1F7CxULp+g3TndN2g8ZwX9Ezk1pR/ssChnid7LBpnA==
   dependencies:
     "@polkadot/types" latest
     "@polkadot/types-known" latest
     "@polkadot/types-support" latest
-    "@subsocial/definitions" "0.6.11"
-    "@subsocial/utils" "0.6.11"
+    "@subsocial/definitions" "0.6.8"
+    "@subsocial/utils" "0.6.8"
     cids "^0.7.1"
 
-"@subsocial/utils@0.6.11", "@subsocial/utils@^0.6.10":
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/@subsocial/utils/-/utils-0.6.11.tgz#0d0c78969282be27c119c87ae359339e91d36cfa"
-  integrity sha512-vKoGvR+89OVaXxwUcwTWn5veWNNf5gnEm6eIcD9SnG4QAQpkylFgrqqak/udWBJ0iABchRrRVQwBcLwsxpzGNA==
+"@subsocial/utils@0.6.8", "@subsocial/utils@^0.6.8":
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/@subsocial/utils/-/utils-0.6.8.tgz#cd6ca5f49bf1efc385d8cddcaf28ce4825226f17"
+  integrity sha512-dT74lglT3XkUzdztTO2bx0il4L/G8tbZACbpO03Qf/e6kLW91vPKMXRLdjoOEFunKx6uclZxL53AK9FEVphuow==
   dependencies:
     "@polkadot/util-crypto" "^8.4.1"
     "@sindresorhus/slugify" "^1.1.0"
@@ -4115,9 +4123,9 @@ bindings@^1.3.0, bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-"bip32-ed25519@git+https://github.com/Zondax/bip32-ed25519.git":
+"bip32-ed25519@https://github.com/Zondax/bip32-ed25519":
   version "0.0.4"
-  resolved "git+https://github.com/Zondax/bip32-ed25519.git#0949df01b5c93885339bc28116690292088f6134"
+  resolved "https://github.com/Zondax/bip32-ed25519#0949df01b5c93885339bc28116690292088f6134"
   dependencies:
     bn.js "^5.1.1"
     elliptic "^6.4.1"
